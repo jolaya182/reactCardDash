@@ -1,10 +1,10 @@
 {
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack serve --mode=development --config config/webpack.dev.js ",
+    "starts": "npx nodemon backend/index.js",
     "build": "webpack --mode=production --config config/webpack.prod.js",
     "lint": "eslint .",
     "prettier": "npx prettier --write .",
-    "starts": "npx nodemon backend/index.js",
     "uAll": " npm uninstall @babel/core @babel/preset-env @babel/preset-react @pmmmwh/react-refresh-webpack-plugin babel-loader chokidar clean-webpack-plugin cross-env css-loader html-webpack-plugin mini-css-extract-plugin postcss postcss-loader postcss-preset-env react-refresh resolve-url sass sass-loader urix webpack webpack-merge webpack-cli webpack-dev-server",
     "iAll": "npm i -D cross-env webpack webpack-merge webpack-cli webpack-dev-server @babel/core @babel/preset-env babel-loader html-webpack-plugin css-loader mini-css-extract-plugin sass sass-loader postcss postcss-loader postcss-preset-env",
     "iR": "npm i -S react react-dom",
@@ -31,6 +31,7 @@
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "express": "^4.17.1",
     "html-webpack-plugin": "^5.3.1",
     "mini-css-extract-plugin": "^1.6.0",
     "postcss": "^8.3.5",
