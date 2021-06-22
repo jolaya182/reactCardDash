@@ -27,7 +27,7 @@ const card = {
   user: 'superSpringfieldLegend182',
   number: 1234567891011121,
   last_four: 4182,
-  speding_limit: 55000
+  spending_limit: 55000
 };
 
 const CardInfo = {

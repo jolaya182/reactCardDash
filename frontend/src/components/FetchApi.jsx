@@ -1,13 +1,12 @@
-const FetchApi = async (URL, method, pageIndex) => {
+const FetchApi = async (URL, method, callBack, payLoad) => {
   const data = {
     method,
     headers: {
       'Content-Type': 'application/json; charset=utf-8'
     }
   };
-  if (method === 'POST') data.body = JSON.stringify(pageIndex);
+  if (method === 'POST') data.body = JSON.stringify(payLoad);
 
-  console.log('data', data, method);
   const response = await fetch(URL, data);
 
   if (!response.ok) {
@@ -16,7 +15,6 @@ const FetchApi = async (URL, method, pageIndex) => {
     throw new Error(message);
   }
   const json = await response.json();
-  console.log('json', json);
-  return json;
+  callBack(json);
 };
 export default FetchApi;
