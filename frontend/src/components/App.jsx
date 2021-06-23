@@ -29,8 +29,7 @@ const App = () => {
     <StateContext.Provider value={{ state, dispatch }}>
       <Switch>
         <Route exact path="/" component={CardOverview} />
-
-        <Route path="/CardActivity" component={CardActivity} />
+        <Route exact path="/CardActivity" component={CardActivity} />
         <Route component={Whoops404} />
       </Switch>
     </StateContext.Provider>

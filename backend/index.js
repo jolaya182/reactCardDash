@@ -1,9 +1,9 @@
 const express = require('express');
+const immer = require('immer');
 
 const app = express();
 const port = 3000;
 const fs = require('fs');
-const initData = require('./initData');
 
 const transactions = JSON.parse(fs.readFileSync('./backend/mainData.json'));
 
@@ -16,7 +16,6 @@ app.use((req, res, next) => {
   next();
 });
 
-//  initData();
 const userData = {
   user: 'superSpringfieldLegend182',
   name: 'Bart Simpson',
@@ -110,4 +109,4 @@ app.post('/sort', (req, res, next) => {
   next();
 });
 
-app.listen(port, () => console.log(`listening to port ${port}`));
+module.exports = app;

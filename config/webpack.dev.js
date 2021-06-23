@@ -10,7 +10,8 @@ module.exports = merge(config, {
   mode: 'development',
   devServer: {
     contentBase: dist,
-    hot: true
+    hot: true,
+    historyApiFallback: true
   },
   target: 'web',
   plugins: [new ReactRefreshWebpackPlugin(), new CleanWebpackPlugin()]

@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { render } from 'react-dom';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { HashRouter as Router } from 'react-router-dom';
 import App from './components/App';
 
 import styles from '../styles/index.scss';

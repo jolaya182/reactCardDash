@@ -95,7 +95,8 @@ const Pagination = () => {
             placeholder={Number(currentIndex) + 1}
             onChange={(e) => {
               const desiredIndex = e.target.value;
-              getChunkByIndex(desiredIndex);
+              const actualDesiredIndex = Number(desiredIndex) - 1;
+              getChunkByIndex(actualDesiredIndex);
             }}
           />
         </div>

@@ -14,7 +14,8 @@ module.exports = {
   devtool: 'source-map',
   plugins: [
     new HtmlWebpackPlugin({
-      template: './frontend/src/index.html'
+      template: './frontend/src/index.html',
+      favicon: './frontend/images/jLogo.ico'
     }),
     new MiniCssExtractPlugin()
   ],
