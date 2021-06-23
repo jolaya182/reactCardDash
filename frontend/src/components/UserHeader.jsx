@@ -7,6 +7,9 @@
 import { useContext } from 'react';
 import StateContext from './StateContext';
 
+/**
+ * @return {html}
+ */
 const UserHeader = () => {
   const { state } = useContext(StateContext);
   const { userData } = state;

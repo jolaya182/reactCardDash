@@ -15,6 +15,7 @@ const {
   currentIndex
 } = require('./constants.js');
 
+// export main function that initiates the mock data
 module.exports = () => {
   const numberGenerator = (min, max) => {
     return Math.floor(Math.random() * (max - min) + min);

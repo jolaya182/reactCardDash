@@ -9,7 +9,10 @@ import FetchApi from './FetchApi';
 import constants from '../constants/constants';
 import StateContext from './StateContext';
 
-export const FilterTool = () => {
+/**
+ * @return {html}
+ */
+const FilterTool = () => {
   const [toggleAscOrder, setToggleAscOrder] = useState(false);
   const { state, dispatch } = useContext(StateContext);
   const { transactions } = state;
@@ -20,6 +23,11 @@ export const FilterTool = () => {
     dispatch({ data, type });
   };
 
+  /**
+   * Sends the metadata type to the server to sort all the data based
+   * on the type
+   * @param {string} metaType
+   */
   const transactionMetaDataFilter = (metaType) => {
     const type = 'SORT_BY_TYPE';
     FetchApi(

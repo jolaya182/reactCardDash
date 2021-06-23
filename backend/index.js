@@ -20,6 +20,7 @@ app.use((req, res, next) => {
   next();
 });
 
+// initalize the mock data
 const userData = {
   user: 'superSpringfieldLegend182',
   name: 'Bart Simpson',
@@ -39,6 +40,7 @@ let CardInfo = {
   transactions
 };
 
+// server functions
 const getChunk = (pageIndex) => {
   const { RECORDSPERPAGE, data } = transactions;
   const start = pageIndex * RECORDSPERPAGE;
@@ -56,26 +58,6 @@ const sumOfTransactionsAndAverage = () => {
   const average = Number(finalSum / TOTALRECORDS).toFixed(2);
   return { finalSum, average };
 };
-
-app.get('/', (req, res, next) => {
-  const averageSum = sumOfTransactionsAndAverage();
-  const { finalSum, average } = averageSum;
-  const newTransactions = { ...CardInfo.transactions };
-  newTransactions.sum = finalSum;
-  newTransactions.average = average;
-  newTransactions.data = getChunk(0);
-
-  const newCardInfo = { ...CardInfo, transactions: newTransactions };
-  res.send(JSON.stringify(newCardInfo));
-  next();
-});
-
-app.post('/getPageIndex', (req, res, next) => {
-  const { pageIndex } = req.body;
-  const newChunck = getChunk(pageIndex);
-  res.send(JSON.stringify(newChunck));
-  next();
-});
 
 const sortCreation = (metaType, toggleAscOrder) => {
   const { RECORDSPERPAGE, data } = transactions;
@@ -98,6 +80,26 @@ const sortCreation = (metaType, toggleAscOrder) => {
   CardInfo = { ...CardInfo, transactions: newTransactions };
   return newData.slice(0, RECORDSPERPAGE);
 };
+
+app.get('/', (req, res, next) => {
+  const averageSum = sumOfTransactionsAndAverage();
+  const { finalSum, average } = averageSum;
+  const newTransactions = { ...CardInfo.transactions };
+  newTransactions.sum = finalSum;
+  newTransactions.average = average;
+  newTransactions.data = getChunk(0);
+
+  const newCardInfo = { ...CardInfo, transactions: newTransactions };
+  res.send(JSON.stringify(newCardInfo));
+  next();
+});
+
+app.post('/getPageIndex', (req, res, next) => {
+  const { pageIndex } = req.body;
+  const newChunck = getChunk(pageIndex);
+  res.send(JSON.stringify(newChunck));
+  next();
+});
 
 app.post('/sort', (req, res, next) => {
   const { metaType, toggleAscOrder } = req.body;

@@ -4,6 +4,13 @@
  * @date: 6/23/2021
  * @description: main applications reducers to handle all the transactions and user's information
  */
+
+/**
+ * updates the old set of chunks with the new requested chunks
+ * @param {obj} state
+ * @param {obj} action
+ * @return {obj}
+ */
 const digestChunk = (state, action) => {
   const { data, currentIndex } = action;
   const newTransactions = {
@@ -22,6 +29,7 @@ const userDataReducer = (state, action) => {
       return state.userData;
   }
 };
+
 const cardReducer = (state, action) => {
   switch (action.type) {
     case 'LOAD_INITIAL_CARD':
@@ -39,17 +47,17 @@ const transactionsReducer = (state, action) => {
       return digestChunk(state, action);
     case 'SORT_BY_TYPE':
       return { ...state.transactions, data: action.data };
-    // case 'SORT_BY_CATEGORY':
-    //   return;
-    // case 'SORT_BY_AMOUNT':
-    //   return;
-    // case 'SORT_BY_MERCHANT':
-    //   return;
     default:
       return state.transactions;
   }
 };
 
+/**
+ * Main reducer of the application
+ * @param {obj} state
+ * @param {obj} action
+ * @return {obj}
+ */
 const AppReducers = (state, action) => {
   return {
     userData: userDataReducer(state, action),

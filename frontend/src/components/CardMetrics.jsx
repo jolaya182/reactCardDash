@@ -7,7 +7,10 @@
 import { useContext } from 'react';
 import StateContext from './StateContext';
 
-export const CardMetrics = () => {
+/**
+ * @return {html}
+ */
+const CardMetrics = () => {
   const { state } = useContext(StateContext);
   const { transactions } = state;
   const { sum, average } = transactions;

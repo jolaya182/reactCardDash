@@ -4,6 +4,15 @@
  * @date: 6/23/2021
  * @description: fetch hook used to gather all card's properties and information
  */
+
+/**
+ * @param {string} URL
+ * @param {string} method
+ * @param {func} callBack
+ * @param {obj} payLoad
+ * @param {obj} [type=false]
+ * @return {obj}
+ */
 const FetchApi = async (URL, method, callBack, payLoad, type = false) => {
   const data = {
     method,

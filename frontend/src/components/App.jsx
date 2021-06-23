@@ -14,9 +14,7 @@ import FetchApi from './FetchApi';
 import constants from '../constants/constants';
 
 /**
- *
- *
- * @return {*} 
+ * @return {html}
  */
 const App = () => {
   const { URL } = constants;

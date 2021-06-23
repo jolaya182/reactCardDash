@@ -9,16 +9,33 @@ import StateContext from './StateContext';
 import FetchApi from './FetchApi';
 import constants from '../constants/constants';
 
+/**
+ * @return {html}
+ */
 const Pagination = () => {
   const { state, dispatch } = useContext(StateContext);
   const { transactions } = state;
   const { currentIndex, TOTALNUMCHUNKS } = transactions;
   const { URL } = constants;
 
+  /**
+   * helper function to be fired once the server response has
+   * been received
+   *
+   * @param {array} data
+   * @param {obj} type
+   * @param {obj} payload
+   */
   const dispatchHelper = (data, type, payload) => {
     dispatch({ type, data, currentIndex: payload.pageIndex });
   };
 
+  /**
+   * check for index out of bounderies
+   *
+   * @param {int} nextIndex
+   * @return {bool}
+   */
   const isOutOfBounderies = (nextIndex) => {
     if (nextIndex < 0 || nextIndex > TOTALNUMCHUNKS) return true;
     return false;
@@ -26,6 +43,12 @@ const Pagination = () => {
   const method = 'POST';
   const type = 'GET_CHUNK';
 
+  /**
+   * fetches a chunk of transactions
+   *
+   * @param {"string"} direction
+   * @return {}
+   */
   const getChunk = (direction) => {
     const nextIndex =
       direction === 'next'
@@ -43,6 +66,11 @@ const Pagination = () => {
     );
   };
 
+  /**
+   * fetches the chunk of data according to the user's given index choice
+   * @param {int} nextIndex
+   * @return {}
+   */
   const getChunkByIndex = (nextIndex) => {
     if (isOutOfBounderies(nextIndex) || isNaN(nextIndex)) return;
     FetchApi(
@@ -54,6 +82,10 @@ const Pagination = () => {
     );
   };
 
+  /**
+   * fetches either the beginning or the last chunk of the transactions
+   * @param {string} ends
+   */
   const getEndChunks = (ends) => {
     const index = ends === 'beginning' ? 0 : TOTALNUMCHUNKS;
     FetchApi(

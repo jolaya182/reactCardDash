@@ -8,6 +8,9 @@
 import { useContext } from 'react';
 import StateContext from './StateContext';
 
+/**
+ * @return {html}
+ */
 const CardDetails = () => {
   const { state } = useContext(StateContext);
   const { card } = state;

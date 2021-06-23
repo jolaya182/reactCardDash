@@ -6,6 +6,9 @@
  */
 import { NavLink } from 'react-router-dom';
 
+/**
+ * @return {html}
+ */
 const MainMenu = () => {
   return (
     <section className="main-menu">

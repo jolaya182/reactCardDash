@@ -14,6 +14,10 @@ import MainMenu from '../components/MainMenu';
 import Transaction from '../components/Transaction';
 import UserHeader from '../components/UserHeader';
 
+/**
+ * @param {component} { children }
+ * @return {html}
+ */
 const PageTemplate = ({ children }) => {
   return (
     <section className="page-template">
