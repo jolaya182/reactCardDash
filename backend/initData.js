@@ -5,7 +5,7 @@ const {
   status,
   TOTALRECORDS,
   RECORDSPERPAGE,
-  TOTALNUMCHUNKS
+  TOTALNUMCHUNKS, currentIndex
 } = require('./constants.js');
 
 module.exports = () => {
@@ -16,10 +16,10 @@ module.exports = () => {
     return categoriesMerchant[numberGenerator(0, 9)];
   };
   const createAmount = () => {
-    return `\$${numberGenerator(0, 9)}${numberGenerator(
+    return `${numberGenerator(0, 9)}${numberGenerator(0, 9)}.${numberGenerator(
       0,
       9
-    )}.${numberGenerator(0, 9)}${numberGenerator(0, 9)}`;
+    )}${numberGenerator(0, 9)}`;
   };
   const createNewDate = (day) => {
     const newDate = new Date();
@@ -55,7 +55,8 @@ module.exports = () => {
     totalRecords: data.length,
     TOTALRECORDS,
     RECORDSPERPAGE,
-    TOTALNUMCHUNKS
+    TOTALNUMCHUNKS,
+    currentIndex
   };
 
   // write jsonObj to the file

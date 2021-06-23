@@ -1,3 +1,15 @@
+const digestChunk = (state, action) => {
+  const { data, currentIndex } = action;
+  console.log('digest, ', currentIndex);
+  const newTransactions = {
+    ...state.transactions,
+    currentIndex,
+    data
+  };
+  console.log('digestChunk', newTransactions);
+  return newTransactions;
+};
+
 const userDataReducer = (state, action) => {
   // console.log('userDataReducer', action.userData);
   switch (action.type) {
@@ -16,11 +28,22 @@ const cardReducer = (state, action) => {
       return state.card;
   }
 };
+
 const transactionsReducer = (state, action) => {
-  // console.log('transactionsReducer', action.transactions);
+  console.log('action', action);
   switch (action.type) {
     case 'LOAD_INITIAL_TRANSACTIONS':
       return action.transactions;
+    case 'GET_CHUNK':
+      return digestChunk(state, action);
+    case 'SORT_BY_TYPE':
+      return { ...state.transactions, data: action.data };
+    // case 'SORT_BY_CATEGORY':
+    //   return;
+    // case 'SORT_BY_AMOUNT':
+    //   return;
+    // case 'SORT_BY_MERCHANT':
+    //   return;
     default:
       return state.transactions;
   }

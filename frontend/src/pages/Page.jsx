@@ -3,6 +3,10 @@
 import { useContext, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import StateContext from '../components/StateContext';
+import FetchApi from '../components/FetchApi';
+import constants from '../constants/constants';
+import Pagination from '../components/Pagination';
+import FilterTool from '../components/FilterTool';
 
 export const UserHeader = () => {
   const { state } = useContext(StateContext);
@@ -60,46 +64,60 @@ export const CardDetails = () => {
   const { state } = useContext(StateContext);
   const { card } = state;
   const { id, user, number, last_four, spending_limit } = card;
-  console.log('card', card);
   return (
     <section className="">
       <h1>CardDetails</h1>
       <div className="roww">
-        <div className="colm cardHeight">Id:</div>
-        <div className="colm cardHeight">{`${id}`}</div>
+        <div className="colm card-height">Id:</div>
+        <div className="colm card-height">{`${id}`}</div>
       </div>
       <div className="roww">
-        <div className="colm cardHeight">User:</div>
-        <div className="colm cardHeight">{`${user}`}</div>
+        <div className="colm card-height">User:</div>
+        <div className="colm card-height">{`${user}`}</div>
       </div>
       <div className="roww">
-        <div className="colm cardHeight">Card Number:</div>
-        <div className="colm cardHeight">{`${number}`}</div>
+        <div className="colm card-height">Card Number:</div>
+        <div className="colm card-height">{`${number}`}</div>
       </div>
       <div className="roww">
-        <div className="colm cardHeight"> Card Last four numbers:</div>
-        <div className="colm cardHeight"> {`${last_four}`}</div>
+        <div className="colm card-height"> Card Last four numbers:</div>
+        <div className="colm card-height"> {`${last_four}`}</div>
       </div>
       <div className="roww">
-        <div className="colm cardHeight">Spending Limit:</div>
-        <div className="colm cardHeight">{`${spending_limit}`}</div>
+        <div className="colm card-height">Spending Limit:</div>
+        <div className="colm card-height">{`${spending_limit}`}</div>
       </div>
       <div className="roww">
-        <div className="colm cardHeight">{}</div>
-        <div className="colm cardHeight">{}</div>
+        <div className="colm card-height">{}</div>
+        <div className="colm card-height">{}</div>
       </div>
     </section>
   );
 };
 
 export const CardMetrics = () => {
-  return <section> CardMetrics </section>;
+  const { state } = useContext(StateContext);
+  const { transactions } = state;
+  const { sum, average } = transactions;
+
+  return (
+    <section>
+      <h1>CardMetrics</h1>
+      <section>
+        <div className="roww">
+          <div className="colm">Sum: </div>
+          <div className="colm">{sum} </div>
+        </div>
+        <div className="roww">
+          <div className="colm">Average:</div>
+          <div className="colm">{average}</div>
+        </div>
+      </section>
+    </section>
+  );
 };
 
 export const CardOverview = () => {
-  const { card } = useContext(StateContext);
-  // const { userData } = state;
-  // const { name } = userData;
   return (
     <PageTemplate>
       <CardDetails />
@@ -108,24 +126,39 @@ export const CardOverview = () => {
   );
 };
 
-export const Transaction = () => {
-  return <section>Transaction</section>;
-};
-export const FilterTool = () => {
-  return <section>FilterTool</section>;
-};
-export const Pagination = () => {
-  return <section>Pagination</section>;
+export const Transaction = ({ data }) => {
+  return (
+    <section>
+      {data.map((record, recordIndx) => {
+        const { id, card, amount, status, merchant, category, created_at } =
+          record;
+        return (
+          <div key={`trans-${recordIndx}`} className="roww">
+            <div className="colm">{id}</div>
+            <div className="colm">{card}</div>
+            <div className="colm">{`$${amount}`}</div>
+            <div className="colm">{status}</div>
+            <div className="colm">{merchant}</div>
+            <div className="colm">{category}</div>
+            <div className="colm">{created_at}</div>
+          </div>
+        );
+      })}
+    </section>
+  );
 };
 
+
 export const CardActivity = () => {
-  const { transactions } = useContext(StateContext);
-  // const { userData } = state;
-  // const { name } = userData;
+  const { state } = useContext(StateContext);
+  const { transactions } = state;
+  const { data } = transactions;
+  console.log('transaction', transactions);
+
   return (
     <PageTemplate>
       <FilterTool />
-      <Transaction />
+      <Transaction data={data} />
       <Pagination />
     </PageTemplate>
   );

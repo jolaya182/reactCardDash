@@ -1,4 +1,4 @@
-const FetchApi = async (URL, method, callBack, payLoad) => {
+const FetchApi = async (URL, method, callBack, payLoad, type = false) => {
   const data = {
     method,
     headers: {
@@ -14,7 +14,13 @@ const FetchApi = async (URL, method, callBack, payLoad) => {
     const message = `response has an erro ${response.status}`;
     throw new Error(message);
   }
+
   const json = await response.json();
+  if (type) {
+    console.log("json, type, payLoad", json, type, payLoad)
+    callBack(json, type, payLoad);
+    return;
+  }
   callBack(json);
 };
 export default FetchApi;

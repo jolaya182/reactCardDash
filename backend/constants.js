@@ -1,6 +1,6 @@
 const TOTALRECORDS = 30;
 const RECORDSPERPAGE = 10;
-const TOTALNUMCHUNKS = Math.floor(TOTALRECORDS / RECORDSPERPAGE);
+const TOTALNUMCHUNKS = Math.ceil(TOTALRECORDS / RECORDSPERPAGE);
 
 module.exports = {
   categoriesMerchant: {
@@ -18,5 +18,7 @@ module.exports = {
   status: { 0: 'pending', 1: 'approved', 2: 'declined' },
   TOTALRECORDS,
   RECORDSPERPAGE,
-  TOTALNUMCHUNKS
+  TOTALNUMCHUNKS,
+  currentIndex: 0,
+  URL: "http://localhost:3000"
 };
