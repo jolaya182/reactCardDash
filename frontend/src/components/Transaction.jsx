@@ -21,6 +21,11 @@ const Transaction = () => {
   const { data } = transactions;
   return (
     <section className="transactions colm">
+      <Row>
+        <Col>
+          <ExoPagination />
+        </Col>
+      </Row>
       <Table hover>
         <FilterTool />
         <tbody>
@@ -41,11 +46,6 @@ const Transaction = () => {
           })}
         </tbody>
       </Table>
-      <Row>
-        <Col>
-          <ExoPagination />
-        </Col>
-      </Row>
     </section>
   );
 };

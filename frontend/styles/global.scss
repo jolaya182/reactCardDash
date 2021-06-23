@@ -2,9 +2,8 @@
 @import 'bootstrap/scss/bootstrap';
 
 body{
-    // color: var(--txt);
-    // background-color: variables.$bg;
-    // font-size: 30px;
+    color: var(--txt);
+    background-color: variables.$bg;
     margin: 0px;
     height: 100%;
 }
@@ -20,17 +19,29 @@ button{
     font-size: 1.2rem;
 }
 
-.page-template{
-    margin: 0px;
+.table{
+    color:white;
+}
+
+.nav-link-wrapper{
+    border: 1px solid black;
+    border-radius: 100px;
+    background-color: #FF0606;
+    margin-bottom: 10px;
 }
 
 .navLinks{
     margin: 0;
     color: black;
-    font-size: 20px;
+    font-size: 30px;
     &:hover{
         color: white;
     }
+}
+
+.pagination{
+    font-size: 1.0rem;
+    color:black;
 }
 
 .filter-types{

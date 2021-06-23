@@ -8,6 +8,7 @@ import { useContext } from 'react';
 import Pagination from 'react-bootstrap/Pagination';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Form from 'react-bootstrap/Form';
 import StateContext from './StateContext';
 import FetchApi from './FetchApi';
 import constants from '../constants/constants';
@@ -122,7 +123,20 @@ const ExoPagination = () => {
             {`<`}
           </Pagination.Prev>
           <div className="colm-c">
-            <input
+            <Form>
+              <Form.Group>
+                <Form.Control
+                  type="text"
+                  placeholder={Number(currentIndex) + 1}
+                  onChange={(e) => {
+                    const desiredIndex = e.target.value;
+                    const actualDesiredIndex = Number(desiredIndex) - 1;
+                    getChunkByIndex(actualDesiredIndex);
+                  }}
+                />
+              </Form.Group>
+            </Form>
+            {/* <input
               type="text"
               className="index-getter"
               placeholder={Number(currentIndex) + 1}
@@ -131,7 +145,7 @@ const ExoPagination = () => {
                 const actualDesiredIndex = Number(desiredIndex) - 1;
                 getChunkByIndex(actualDesiredIndex);
               }}
-            />
+            /> */}
           </div>
           <Pagination.Next
             className="colm-c pointer"
