@@ -6,8 +6,7 @@
  * @description: shows user's card information
  */
 import { useContext } from 'react';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import Table from 'react-bootstrap/Table';
 import StateContext from './StateContext';
 
 /**
@@ -18,40 +17,45 @@ const CardDetails = () => {
   const { card } = state;
   const { id, user, number, last_four, spending_limit } = card;
   return (
-    <>
-      <h1>CardDetails</h1>
-      <Col>
-        <Row>
-          <Col className="textWrap card-height">Id:</Col>
-          <Col className="textWrap card-height">{`${id}`}</Col>
-        </Row>
+    <Table>
+      <tbody>
+        <tr>
+          <td colSpan="2">
+            <h1>CardDetails</h1>
+          </td>
+        </tr>
 
-        <Row>
-          <Col className="textWrap card-height">User:</Col>
-          <Col className="textWrap card-height">{`${user}`}</Col>
-        </Row>
+        <tr>
+          <td className=" card-height">Id:</td>
+          <td className=" card-height">{`${id}`}</td>
+        </tr>
 
-        <Row>
-          <Col className="textWrap card-height">Card Number:</Col>
-          <Col className="textWrap card-height">{`${number}`}</Col>
-        </Row>
+        <tr>
+          <td className=" card-height">User:</td>
+          <td className=" card-height">{`${user}`}</td>
+        </tr>
 
-        <Row>
-          <Col className="textWrap card-height"> Card Last four numbers:</Col>
-          <Col className="textWrap card-height"> {`${last_four}`}</Col>
-        </Row>
+        <tr>
+          <td className=" card-height">Card Number:</td>
+          <td className=" card-height">{`${number}`}</td>
+        </tr>
 
-        <Row>
-          <Col className="textWrap card-height">Spending Limit:</Col>
-          <Col className="textWrap card-height">{`${spending_limit}`}</Col>
-        </Row>
+        <tr>
+          <td className=" card-height"> Card Last four numbers:</td>
+          <td className=" card-height"> {`${last_four}`}</td>
+        </tr>
 
-        <Row>
-          <Col className="textWrap card-height">{}</Col>
-          <Col className="textWrap card-height">{}</Col>
-        </Row>
-      </Col>
-    </>
+        <tr>
+          <td className=" card-height">Spending Limit:</td>
+          <td className=" card-height">{`${spending_limit}`}</td>
+        </tr>
+
+        <tr>
+          <td className=" card-height">{}</td>
+          <td className=" card-height">{}</td>
+        </tr>
+      </tbody>
+    </Table>
   );
 };
 

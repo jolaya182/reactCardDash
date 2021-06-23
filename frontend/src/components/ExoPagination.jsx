@@ -5,6 +5,9 @@
  * @description: bottom table that allows the user to seek the next chunk of transactions
  */
 import { useContext } from 'react';
+import Pagination from 'react-bootstrap/Pagination';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import StateContext from './StateContext';
 import FetchApi from './FetchApi';
 import constants from '../constants/constants';
@@ -12,7 +15,7 @@ import constants from '../constants/constants';
 /**
  * @return {html}
  */
-const Pagination = () => {
+const ExoPagination = () => {
   const { state, dispatch } = useContext(StateContext);
   const { transactions } = state;
   const { currentIndex, TOTALNUMCHUNKS } = transactions;
@@ -98,54 +101,56 @@ const Pagination = () => {
   };
 
   return (
-    <section>
-      <div className="roww">
-        <div className="colm-c">{currentIndex <= 0 ? null : currentIndex}</div>
-        <div className="colm-c" />
-        <div className="colm-c">{Number(currentIndex) + 1}</div>
-        <div className="colm-c" />
-        <div className="colm-c">
-          {currentIndex >= TOTALNUMCHUNKS ? null : Number(currentIndex) + 2}
-        </div>
-      </div>
-      <div className="roww">
-        <div
-          className="colm-c pointer"
-          onClick={() => {
-            getEndChunks('beginning');
-          }}
-        >
-          Start
-        </div>
-        <div className="colm-c pointer" onClick={() => getChunk('previous')}>
-          {`<`}
-        </div>
-        <div className="colm-c">
-          <input
-            type="text"
-            className="index-getter"
-            placeholder={Number(currentIndex) + 1}
-            onChange={(e) => {
-              const desiredIndex = e.target.value;
-              const actualDesiredIndex = Number(desiredIndex) - 1;
-              getChunkByIndex(actualDesiredIndex);
+    <Row>
+      <Col>
+        <Pagination>
+          <Pagination.First
+            className="colm-c pointer"
+            onClick={() => {
+              getEndChunks('beginning');
             }}
-          />
-        </div>
-        <div
-          className="colm-c pointer"
-          onClick={() => getChunk('next')}
-        >{`>`}</div>
-        <div
-          className="colm-c pointer"
-          onClick={() => {
-            getEndChunks('end');
-          }}
-        >
-          End
-        </div>
-      </div>
-    </section>
+          >
+            Start
+          </Pagination.First>
+          <Pagination.Item>
+            {currentIndex <= 0 ? '_' : currentIndex}
+          </Pagination.Item>
+          <Pagination.Prev
+            className="colm-c pointer"
+            onClick={() => getChunk('previous')}
+          >
+            {`<`}
+          </Pagination.Prev>
+          <div className="colm-c">
+            <input
+              type="text"
+              className="index-getter"
+              placeholder={Number(currentIndex) + 1}
+              onChange={(e) => {
+                const desiredIndex = e.target.value;
+                const actualDesiredIndex = Number(desiredIndex) - 1;
+                getChunkByIndex(actualDesiredIndex);
+              }}
+            />
+          </div>
+          <Pagination.Next
+            className="colm-c pointer"
+            onClick={() => getChunk('next')}
+          >{`>`}</Pagination.Next>
+          <Pagination.Item>
+            {currentIndex >= TOTALNUMCHUNKS ? '_' : Number(currentIndex) + 2}
+          </Pagination.Item>
+          <Pagination.Last
+            className="colm-c pointer"
+            onClick={() => {
+              getEndChunks('end');
+            }}
+          >
+            End
+          </Pagination.Last>
+        </Pagination>
+      </Col>
+    </Row>
   );
 };
-export default Pagination;
+export default ExoPagination;

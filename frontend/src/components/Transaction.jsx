@@ -7,9 +7,11 @@
  */
 import { useContext } from 'react';
 import { Table } from 'react-bootstrap';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import StateContext from './StateContext';
-import TransCell from './TransCell';
 import FilterTool from './FilterTool';
+import ExoPagination from './ExoPagination';
 /**
  * @return {html}
  */
@@ -27,18 +29,23 @@ const Transaction = () => {
               record;
             return (
               <tr key={`trans-${recordIndx}`}>
-                <TransCell>{id}</TransCell>
-                <TransCell>{card}</TransCell>
-                <TransCell>{`$${amount}`}</TransCell>
-                <TransCell>{status}</TransCell>
-                <TransCell>{merchant}</TransCell>
-                <TransCell>{category}</TransCell>
-                <TransCell>{created_at}</TransCell>
+                <td>{id}</td>
+                <td>{card}</td>
+                <td>{`$${amount}`}</td>
+                <td>{status}</td>
+                <td>{merchant}</td>
+                <td>{category}</td>
+                <td>{created_at}</td>
               </tr>
             );
           })}
         </tbody>
       </Table>
+      <Row>
+        <Col>
+          <ExoPagination />
+        </Col>
+      </Row>
     </section>
   );
 };

@@ -8,15 +8,15 @@ import { useContext, useState } from 'react';
 import FetchApi from './FetchApi';
 import constants from '../constants/constants';
 import StateContext from './StateContext';
+import TransCell from './TransCell';
 
 /**
  * @return {html}
  */
 const FilterTool = () => {
   const [toggleAscOrder, setToggleAscOrder] = useState(false);
+  // eslint-disable-next-line no-unused-vars
   const { state, dispatch } = useContext(StateContext);
-  const { transactions } = state;
-  const { TOTALRECORDS } = transactions;
   const { URL } = constants;
   const method = 'POST';
   const sortHelper = (data, type) => {
@@ -42,36 +42,51 @@ const FilterTool = () => {
 
   return (
     <thead>
-      <tr className="roww">
-        <th className="colm-c">Id</th>
-        <th className="colm-c">Card</th>
-        <th
-          className="colm-c pointer"
-          onClick={() => transactionMetaDataFilter('amount')}
+      <tr>
+        <TransCell
+          metaData={false}
+          transactionMetaDataFilter={transactionMetaDataFilter}
         >
-          amount
-        </th>
-        <th className="colm-c">status</th>
-        <th
-          className="colm-c pointer"
-          onClick={() => transactionMetaDataFilter('merchant')}
+          Id
+        </TransCell>
+        <TransCell
+          metaData={false}
+          transactionMetaDataFilter={transactionMetaDataFilter}
         >
-          merchant
-        </th>
-        <th
-          className="colm-c pointer"
-          onClick={() => transactionMetaDataFilter('category')}
+          Card
+        </TransCell>
+        <TransCell
+          metaData="amount"
+          transactionMetaDataFilter={transactionMetaDataFilter}
         >
-          category
-        </th>
-        <th
-          className="colm-c pointer"
-          onClick={() => transactionMetaDataFilter('created_at')}
+          Amount
+        </TransCell>
+        <TransCell
+          metaData={false}
+          transactionMetaDataFilter={transactionMetaDataFilter}
         >
-          created_at
-        </th>
+          status
+        </TransCell>
+        <TransCell
+          metaData="merchant"
+          transactionMetaDataFilter={transactionMetaDataFilter}
+        >
+          Merchant
+        </TransCell>
+        <TransCell
+          metaData="category"
+          transactionMetaDataFilter={transactionMetaDataFilter}
+        >
+          Category
+        </TransCell>
+        <TransCell
+          metaData="created_at"
+          transactionMetaDataFilter={transactionMetaDataFilter}
+        >
+          Created_at
+        </TransCell>
       </tr>
-      </thead>
+    </thead>
   );
 };
 export default FilterTool;

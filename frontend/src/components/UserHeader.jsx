@@ -5,7 +5,9 @@
  * @description: top header displaying the user's information
  */
 import { useContext } from 'react';
+import Col from 'react-bootstrap/Col';
 import StateContext from './StateContext';
+import Bart from '../../images/bart1.png';
 
 /**
  * @return {html}
@@ -17,8 +19,10 @@ const UserHeader = () => {
 
   return (
     <section className="colm-user-header">
-      <div> Picture </div>
-      Welcome : {name}{' '}
+      <Col>
+        <img src={Bart} className="pic" alt="pic" />
+      </Col>
+      Welcome : {name}
     </section>
   );
 };

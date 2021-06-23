@@ -9,12 +9,12 @@
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
-import Pagination from '../components/Pagination';
 import CardMetrics from '../components/CardMetrics';
 import CardDetails from '../components/CardDetails';
 import MainMenu from '../components/MainMenu';
 import Transaction from '../components/Transaction';
 import UserHeader from '../components/UserHeader';
+import User from '../components/User';
 
 /**
  * @param {component} { children }
@@ -51,6 +51,9 @@ export const CardOverview = () => {
       <Col>
         <CardMetrics />
       </Col>
+      <Col>
+        <User />
+      </Col>
     </PageTemplate>
   );
 };
@@ -60,9 +63,6 @@ export const CardActivity = () => {
     <PageTemplate>
       <Col>
         <Transaction />
-      </Col>
-      <Col>
-        <Pagination />
       </Col>
     </PageTemplate>
   );
