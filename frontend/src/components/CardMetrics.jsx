@@ -1,3 +1,9 @@
+/**
+ * @title: CardMetrics.jsx
+ * @author: Javier Olaya
+ * @date: 6/23/2021
+ * @description: shows the card information such as total sum or purchased goods and average amount
+ */
 import { useContext } from 'react';
 import StateContext from './StateContext';
 

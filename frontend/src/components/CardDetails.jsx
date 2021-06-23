@@ -1,4 +1,10 @@
 /* eslint-disable camelcase */
+/**
+ * @title: CardDetails.jsx
+ * @author: Javier Olaya
+ * @date: 6/23/2021
+ * @description: shows user's card information
+ */
 import { useContext } from 'react';
 import StateContext from './StateContext';
 

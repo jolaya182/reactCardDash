@@ -1,3 +1,9 @@
+/**
+ * @title: FetchApi.jsx
+ * @author: Javier Olaya
+ * @date: 6/23/2021
+ * @description: fetch hook used to gather all card's properties and information
+ */
 const FetchApi = async (URL, method, callBack, payLoad, type = false) => {
   const data = {
     method,

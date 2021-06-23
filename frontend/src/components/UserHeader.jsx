@@ -1,3 +1,9 @@
+/**
+ * @title: UserHeader.jsx
+ * @author: Javier Olaya
+ * @date: 6/23/2021
+ * @description: top header displaying the user's information
+ */
 import { useContext } from 'react';
 import StateContext from './StateContext';
 

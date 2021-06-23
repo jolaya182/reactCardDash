@@ -1,3 +1,9 @@
+/**
+ * @title: index.jsx
+ * @author: Javier Olaya
+ * @date: 6/23/2021
+ * @description: main sever file that is used for the card application
+ */
 const express = require('express');
 
 const app = express();

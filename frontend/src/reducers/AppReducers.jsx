@@ -1,3 +1,9 @@
+/**
+ * @title: AppReducers.jsx
+ * @author: Javier Olaya
+ * @date: 6/23/2021
+ * @description: main applications reducers to handle all the transactions and user's information
+ */
 const digestChunk = (state, action) => {
   const { data, currentIndex } = action;
   const newTransactions = {

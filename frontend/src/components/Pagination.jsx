@@ -1,3 +1,9 @@
+/**
+ * @title: Paination.jsx
+ * @author: Javier Olaya
+ * @date: 6/23/2021
+ * @description: bottom table that allows the user to seek the next chunk of transactions
+ */
 import { useContext } from 'react';
 import StateContext from './StateContext';
 import FetchApi from './FetchApi';

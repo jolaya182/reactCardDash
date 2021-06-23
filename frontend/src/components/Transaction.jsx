@@ -1,4 +1,10 @@
 /* eslint-disable camelcase */
+/**
+ * @title: Transaction.jsx
+ * @author: Javier Olaya
+ * @date: 6/23/2021
+ * @description: lists all transaction
+ */
 import { useContext } from 'react';
 import StateContext from './StateContext';
 

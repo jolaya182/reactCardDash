@@ -1,3 +1,9 @@
+/**
+ * @title: webpack.config.js
+ * @author: Javier Olaya
+ * @date: 6/23/2021
+ * @description: main webpack config file for the card application
+ */
 const path = require('path');
 
 const dist = path.resolve(__dirname, '../dist');

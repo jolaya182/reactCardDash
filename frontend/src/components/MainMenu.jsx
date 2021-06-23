@@ -1,3 +1,9 @@
+/**
+ * @title: MainMenu.jsx
+ * @author: Javier Olaya
+ * @date: 6/23/2021
+ * @description: side bar menu that helps the user navigate
+ */
 import { NavLink } from 'react-router-dom';
 
 const MainMenu = () => {

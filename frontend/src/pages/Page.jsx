@@ -1,5 +1,11 @@
 /* eslint-disable camelcase */
 /* eslint-disable react/prop-types */
+/**
+ * @title: Page.jsx
+ * @author: Javier Olaya
+ * @date: 6/23/2021
+ * @description: main component that holds the page sections
+ */
 import Pagination from '../components/Pagination';
 import FilterTool from '../components/FilterTool';
 import CardMetrics from '../components/CardMetrics';

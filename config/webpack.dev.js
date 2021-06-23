@@ -1,3 +1,9 @@
+/**
+ * @title: webpack.dev.js
+ * @author: Javier Olaya
+ * @date: 6/23/2021
+ * @description: webpack development server configuration
+ */
 const { merge } = require('webpack-merge');
 const path = require('path');
 

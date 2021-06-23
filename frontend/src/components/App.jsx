@@ -1,5 +1,10 @@
 // @refresh reset
-
+/**
+ * @title: Applcation.jsx
+ * @author: Javier Olaya
+ * @date: 6/23/2021
+ * @description: Main container for page routing and inital fetch call
+ */
 import { useReducer, useEffect } from 'react';
 import { Route, Switch } from 'react-router';
 import { CardOverview, CardActivity, Whoops404 } from '../pages/Page';
@@ -8,6 +13,11 @@ import AppReducers from '../reducers/AppReducers';
 import FetchApi from './FetchApi';
 import constants from '../constants/constants';
 
+/**
+ *
+ *
+ * @return {*} 
+ */
 const App = () => {
   const { URL } = constants;
   const [state, dispatch] = useReducer(AppReducers, constants);

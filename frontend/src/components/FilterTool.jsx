@@ -1,3 +1,9 @@
+/**
+ * @title: FilterTool.jsx
+ * @author: Javier Olaya
+ * @date: 6/23/2021
+ * @description: Top transaction header table filter
+ */
 import { useContext, useState } from 'react';
 import FetchApi from './FetchApi';
 import constants from '../constants/constants';

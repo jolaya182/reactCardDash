@@ -1,4 +1,10 @@
 /* eslint-disable import/extensions */
+/**
+ * @title: initData.jsx
+ * @author: Javier Olaya
+ * @date: 6/23/2021
+ * @description: data initalizer for mocking the data
+ */
 const fs = require('fs');
 const {
   categoriesMerchant,
