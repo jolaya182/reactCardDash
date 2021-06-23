@@ -1,8 +1,6 @@
 const express = require('express');
-const immer = require('immer');
 
 const app = express();
-const port = 3000;
 const fs = require('fs');
 
 const transactions = JSON.parse(fs.readFileSync('./backend/mainData.json'));
@@ -37,13 +35,9 @@ let CardInfo = {
 
 const getChunk = (pageIndex) => {
   const { RECORDSPERPAGE, data } = transactions;
-  console.log('pageIndex', transactions.data.length);
   const start = pageIndex * RECORDSPERPAGE;
   const end = start + RECORDSPERPAGE;
-  // console.log("this is data", data)
   const chunck = data.slice(start, end);
-  console.log('start', start, 'end', end);
-  // console.log('chunk', chunck);
   return chunck;
 };
 
@@ -73,7 +67,6 @@ app.get('/', (req, res, next) => {
 app.post('/getPageIndex', (req, res, next) => {
   const { pageIndex } = req.body;
   const newChunck = getChunk(pageIndex);
-  // console.log('newChunck', newChunck);
   res.send(JSON.stringify(newChunck));
   next();
 });
@@ -104,7 +97,6 @@ app.post('/sort', (req, res, next) => {
   const { metaType, toggleAscOrder } = req.body;
 
   const newChunck = sortCreation(metaType, toggleAscOrder);
-  // console.log('newChunck', newChunck);
   res.send(JSON.stringify(newChunck));
   next();
 });

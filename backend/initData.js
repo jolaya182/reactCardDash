@@ -5,7 +5,8 @@ const {
   status,
   TOTALRECORDS,
   RECORDSPERPAGE,
-  TOTALNUMCHUNKS, currentIndex
+  TOTALNUMCHUNKS,
+  currentIndex
 } = require('./constants.js');
 
 module.exports = () => {
@@ -62,5 +63,4 @@ module.exports = () => {
   // write jsonObj to the file
   const stringifiedJson = JSON.stringify(jsonObj);
   fs.writeFileSync('./backend/mainData.json', stringifiedJson);
-  console.log('done!', new Date());
 };

@@ -10,14 +10,12 @@ const FetchApi = async (URL, method, callBack, payLoad, type = false) => {
   const response = await fetch(URL, data);
 
   if (!response.ok) {
-    console.log(`response has an erro ${response.status}`);
     const message = `response has an erro ${response.status}`;
     throw new Error(message);
   }
 
   const json = await response.json();
   if (type) {
-    console.log("json, type, payLoad", json, type, payLoad)
     callBack(json, type, payLoad);
     return;
   }

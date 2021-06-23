@@ -20,5 +20,5 @@ module.exports = {
   RECORDSPERPAGE,
   TOTALNUMCHUNKS,
   currentIndex: 0,
-  URL: "http://localhost:3000"
+  URL: 'http://localhost:3000'
 };

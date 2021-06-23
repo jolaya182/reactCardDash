@@ -1,6 +1,6 @@
 // @refresh reset
 
-import { useReducer, useEffect, useState, useContext } from 'react';
+import { useReducer, useEffect } from 'react';
 import { Route, Switch } from 'react-router';
 import { CardOverview, CardActivity, Whoops404 } from '../pages/Page';
 import StateContext from './StateContext';
@@ -14,7 +14,6 @@ const App = () => {
 
   const receiveInitialData = (json) => {
     const { userData, card, transactions } = json;
-    console.log('json', json);
     dispatch({ type: 'LOAD_INITIAL_USERDATA', userData });
     dispatch({ type: 'LOAD_INITIAL_CARD', card });
     dispatch({ type: 'LOAD_INITIAL_TRANSACTIONS', transactions });

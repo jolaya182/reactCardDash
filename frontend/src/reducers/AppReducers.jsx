@@ -1,17 +1,14 @@
 const digestChunk = (state, action) => {
   const { data, currentIndex } = action;
-  console.log('digest, ', currentIndex);
   const newTransactions = {
     ...state.transactions,
     currentIndex,
     data
   };
-  console.log('digestChunk', newTransactions);
   return newTransactions;
 };
 
 const userDataReducer = (state, action) => {
-  // console.log('userDataReducer', action.userData);
   switch (action.type) {
     case 'LOAD_INITIAL_USERDATA':
       return action.userData;
@@ -20,7 +17,6 @@ const userDataReducer = (state, action) => {
   }
 };
 const cardReducer = (state, action) => {
-  // console.log('cardReducer', action.card);
   switch (action.type) {
     case 'LOAD_INITIAL_CARD':
       return action.card;
@@ -30,7 +26,6 @@ const cardReducer = (state, action) => {
 };
 
 const transactionsReducer = (state, action) => {
-  console.log('action', action);
   switch (action.type) {
     case 'LOAD_INITIAL_TRANSACTIONS':
       return action.transactions;

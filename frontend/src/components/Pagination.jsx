@@ -10,16 +10,10 @@ const Pagination = () => {
   const { URL } = constants;
 
   const dispatchHelper = (data, type, payload) => {
-    console.log('dispatch', data, type, payload);
     dispatch({ type, data, currentIndex: payload.pageIndex });
   };
 
   const isOutOfBounderies = (nextIndex) => {
-    console.log('nextIndex, TOTALNUMCHUNKS', nextIndex, TOTALNUMCHUNKS);
-    console.log(
-      'isOutOfBounderies',
-      nextIndex < 0 || nextIndex > TOTALNUMCHUNKS
-    );
     if (nextIndex < 0 || nextIndex > TOTALNUMCHUNKS) return true;
     return false;
   };
