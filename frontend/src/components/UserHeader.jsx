@@ -15,6 +15,11 @@ const UserHeader = () => {
   const { userData } = state;
   const { name } = userData;
 
-  return <section className="user-header"> Welcome : {name} </section>;
+  return (
+    <section className="colm-user-header">
+      <div> Picture </div>
+      Welcome : {name}{' '}
+    </section>
+  );
 };
 export default UserHeader;

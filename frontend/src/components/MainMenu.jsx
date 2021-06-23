@@ -5,17 +5,19 @@
  * @description: side bar menu that helps the user navigate
  */
 import { NavLink } from 'react-router-dom';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Container from 'react-bootstrap/Container';
 
 /**
  * @return {html}
  */
 const MainMenu = () => {
   return (
-    <section className="main-menu">
-      <div> Picture </div>
-      <div className="colm">
-        <div className="roww">
-          <div className="colm">
+    <Container>
+      <section className=" sidebar">
+        <Row>
+          <Col>
             <NavLink
               to="/"
               style={{ textDecoration: 'none' }}
@@ -23,10 +25,8 @@ const MainMenu = () => {
             >
               Card Overview
             </NavLink>
-          </div>
-        </div>
-        <div className="roww">
-          <div className="colm">
+          </Col>
+          <Col>
             <NavLink
               to="/CardActivity"
               style={{ textDecoration: 'none' }}
@@ -34,10 +34,10 @@ const MainMenu = () => {
             >
               Card Activity
             </NavLink>
-          </div>
-        </div>
-      </div>
-    </section>
+          </Col>
+        </Row>
+      </section>
+    </Container>
   );
 };
 export default MainMenu;

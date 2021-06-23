@@ -100,27 +100,27 @@ const Pagination = () => {
   return (
     <section>
       <div className="roww">
-        <div className="colm">{currentIndex <= 0 ? null : currentIndex}</div>
-        <div className="colm" />
-        <div className="colm">{Number(currentIndex) + 1}</div>
-        <div className="colm" />
-        <div className="colm">
+        <div className="colm-c">{currentIndex <= 0 ? null : currentIndex}</div>
+        <div className="colm-c" />
+        <div className="colm-c">{Number(currentIndex) + 1}</div>
+        <div className="colm-c" />
+        <div className="colm-c">
           {currentIndex >= TOTALNUMCHUNKS ? null : Number(currentIndex) + 2}
         </div>
       </div>
       <div className="roww">
         <div
-          className="colm pointer"
+          className="colm-c pointer"
           onClick={() => {
             getEndChunks('beginning');
           }}
         >
           Start
         </div>
-        <div className="colm pointer" onClick={() => getChunk('previous')}>
+        <div className="colm-c pointer" onClick={() => getChunk('previous')}>
           {`<`}
         </div>
-        <div className="colm">
+        <div className="colm-c">
           <input
             type="text"
             className="index-getter"
@@ -133,11 +133,11 @@ const Pagination = () => {
           />
         </div>
         <div
-          className="colm pointer"
+          className="colm-c pointer"
           onClick={() => getChunk('next')}
         >{`>`}</div>
         <div
-          className="colm pointer"
+          className="colm-c pointer"
           onClick={() => {
             getEndChunks('end');
           }}

@@ -2,8 +2,7 @@
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack serve --mode=development --config config/webpack.dev.js ",
     "starts": "npx nodemon backend/server.js",
-    "prebuild": "npm run starts",
-    "build": " webpack --mode=production --config config/webpack.prod.js",
+    "build": " webpack --mode=production --config config/webpack.prod.js && npm run starts",
     "lint": "eslint .",
     "prettier": "npx prettier --write .",
     "uAll": " npm uninstall @babel/core @babel/preset-env @babel/preset-react @pmmmwh/react-refresh-webpack-plugin babel-loader chokidar clean-webpack-plugin cross-env css-loader html-webpack-plugin mini-css-extract-plugin postcss postcss-loader postcss-preset-env react-refresh resolve-url sass sass-loader urix webpack webpack-merge webpack-cli webpack-dev-server",
@@ -48,10 +47,14 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
+    "bootstrap": "^4.6.0",
     "chokidar": "^3.5.2",
     "core-js": "^3.14.0",
     "immer": "^9.0.3",
+    "jquery": "^3.6.0",
+    "popper": "^1.0.1",
     "react": "^17.0.2",
+    "react-bootstrap": "^1.6.1",
     "react-dom": "^17.0.2",
     "react-router-dom": "^5.2.0",
     "regenerator-runtime": "^0.13.7",

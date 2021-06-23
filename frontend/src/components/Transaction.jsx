@@ -6,8 +6,10 @@
  * @description: lists all transaction
  */
 import { useContext } from 'react';
+import { Table } from 'react-bootstrap';
 import StateContext from './StateContext';
-
+import TransCell from './TransCell';
+import FilterTool from './FilterTool';
 /**
  * @return {html}
  */
@@ -16,22 +18,27 @@ const Transaction = () => {
   const { transactions } = state;
   const { data } = transactions;
   return (
-    <section>
-      {data.map((record, recordIndx) => {
-        const { id, card, amount, status, merchant, category, created_at } =
-          record;
-        return (
-          <div key={`trans-${recordIndx}`} className="roww">
-            <div className="colm">{id}</div>
-            <div className="colm">{card}</div>
-            <div className="colm">{`$${amount}`}</div>
-            <div className="colm">{status}</div>
-            <div className="colm">{merchant}</div>
-            <div className="colm">{category}</div>
-            <div className="colm">{created_at}</div>
-          </div>
-        );
-      })}
+    <section className="transactions colm">
+      <Table hover>
+        <FilterTool />
+        <tbody>
+          {data.map((record, recordIndx) => {
+            const { id, card, amount, status, merchant, category, created_at } =
+              record;
+            return (
+              <tr key={`trans-${recordIndx}`}>
+                <TransCell>{id}</TransCell>
+                <TransCell>{card}</TransCell>
+                <TransCell>{`$${amount}`}</TransCell>
+                <TransCell>{status}</TransCell>
+                <TransCell>{merchant}</TransCell>
+                <TransCell>{category}</TransCell>
+                <TransCell>{created_at}</TransCell>
+              </tr>
+            );
+          })}
+        </tbody>
+      </Table>
     </section>
   );
 };

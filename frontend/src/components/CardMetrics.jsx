@@ -5,8 +5,9 @@
  * @description: shows the card information such as total sum or purchased goods and average amount
  */
 import { useContext } from 'react';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import StateContext from './StateContext';
-
 /**
  * @return {html}
  */
@@ -16,19 +17,19 @@ const CardMetrics = () => {
   const { sum, average } = transactions;
 
   return (
-    <section>
+    <>
       <h1>CardMetrics</h1>
-      <section>
-        <div className="roww">
-          <div className="colm">Sum: </div>
-          <div className="colm">{sum} </div>
-        </div>
-        <div className="roww">
-          <div className="colm">Average:</div>
-          <div className="colm">{average}</div>
-        </div>
-      </section>
-    </section>
+      <Col>
+        <Row>
+          <Col className="textWrap card-height">Sum: </Col>
+          <Col className="textWrap card-height">{sum} </Col>
+        </Row>
+        <Row>
+          <Col className="textWrap card-height">Average:</Col>
+          <Col className="textWrap card-height">{average}</Col>
+        </Row>
+      </Col>
+    </>
   );
 };
 export default CardMetrics;

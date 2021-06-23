@@ -41,38 +41,37 @@ const FilterTool = () => {
   };
 
   return (
-    <section>
-      TOTALRECORDS: {TOTALRECORDS}
-      <div className="roww">
-        <div className="colm">Id</div>
-        <div className="colm">Card</div>
-        <div
-          className="colm pointer"
+    <thead>
+      <tr className="roww">
+        <th className="colm-c">Id</th>
+        <th className="colm-c">Card</th>
+        <th
+          className="colm-c pointer"
           onClick={() => transactionMetaDataFilter('amount')}
         >
           amount
-        </div>
-        <div className="colm">status</div>
-        <div
-          className="colm pointer"
+        </th>
+        <th className="colm-c">status</th>
+        <th
+          className="colm-c pointer"
           onClick={() => transactionMetaDataFilter('merchant')}
         >
           merchant
-        </div>
-        <div
-          className="colm pointer"
+        </th>
+        <th
+          className="colm-c pointer"
           onClick={() => transactionMetaDataFilter('category')}
         >
           category
-        </div>
-        <div
-          className="colm pointer"
+        </th>
+        <th
+          className="colm-c pointer"
           onClick={() => transactionMetaDataFilter('created_at')}
         >
           created_at
-        </div>
-      </div>
-    </section>
+        </th>
+      </tr>
+      </thead>
   );
 };
 export default FilterTool;
