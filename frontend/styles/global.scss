@@ -30,7 +30,7 @@ button{
     margin-bottom: 10px;
 }
 
-.navLinks{
+.nav-links{
     margin: 0;
     color: black;
     font-size: 30px;
@@ -55,13 +55,7 @@ button{
     flex-direction: column;
     &-c { @extend .colm; align-items: center; flex-wrap: wrap;width: 100%;}
     &-user-header {@extend .colm; height: 100%;width: 100%; }
-    &-right-content{@extend .colm; width: 75%; height: 100%;}
-    &-main-menu{ @extend .colm; 
-        width: 25%; 
-        height: 100%;
-        font-size: calc(1rem + 1vw);
     
-    }
 }
 
 .col{
@@ -70,26 +64,6 @@ button{
     align-items: center;
 }
 
-.textWrap{
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    text-align: left;
-}
-
-.list-center{
-    margin: 0px;
-    width: 75%;
-    border: 1px solid black;
-}
-
-.roww{
-    display:flex;
-    flex-direction: row;
-    flex-basis: 1;
-    width: 100%;
-
-}
 .row{
     margin-right: 0px;
     margin-left: -05px;

@@ -22,7 +22,7 @@ const MainMenu = () => {
               <NavLink
                 to="/"
                 style={{ textDecoration: 'none' }}
-                className="navLinks"
+                className="nav-links"
               >
                 Card Overview
               </NavLink>
@@ -33,7 +33,7 @@ const MainMenu = () => {
               <NavLink
                 to="/CardActivity"
                 style={{ textDecoration: 'none' }}
-                className="navLinks"
+                className="nav-links"
               >
                 Card Activity
               </NavLink>
