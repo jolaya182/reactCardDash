@@ -42,7 +42,7 @@ Finally, open your webbrowser and type in this url: `http://localhost:8080/`
 ## Design questions
 
 ```
-How else might I have improved my solution given more time?
+How else might I have improved on top of my solution (given more time)?
 ```
 
 A way to have improved this application is by adopting a technology called 'immer'. This would allow the resting of objects to be much cleaner. Another point is to add some jest tests where I can check if the fetch API hook component I created is working well. In addition, I would have created an end-to-end test like puppeteer to check for the rendering of the form and data on the page.

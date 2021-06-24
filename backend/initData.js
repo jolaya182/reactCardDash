@@ -57,6 +57,8 @@ module.exports = () => {
     };
     data.push(rec);
   }
+  const f = new Date();
+  console.log('done', f);
 
   const jsonObj = {
     data,

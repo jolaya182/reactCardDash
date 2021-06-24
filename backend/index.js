@@ -41,6 +41,12 @@ let CardInfo = {
 };
 
 // server functions
+/**
+ * returns a set of transactions according the page
+ * index the client is requesting
+ * @param {int} pageIndex
+ * @return {array}
+ */
 const getChunk = (pageIndex) => {
   const { RECORDSPERPAGE, data } = transactions;
   const start = pageIndex * RECORDSPERPAGE;
@@ -49,6 +55,10 @@ const getChunk = (pageIndex) => {
   return chunck;
 };
 
+/**
+ * returns both the sum and average of all transactions
+ * @return {obj}
+ */
 const sumOfTransactionsAndAverage = () => {
   const { data, TOTALRECORDS } = transactions;
   const finalSum = data.reduce((acc, record) => {
@@ -59,6 +69,13 @@ const sumOfTransactionsAndAverage = () => {
   return { finalSum, average };
 };
 
+/**
+ * resorts the transactions based on the metadata that the
+ * client has selected
+ * @param {obj} metaType
+ * @param {bool} toggleAscOrder
+ * @return {array}
+ */
 const sortCreation = (metaType, toggleAscOrder) => {
   const { RECORDSPERPAGE, data } = transactions;
   const newData = data.sort((a, b) => {
@@ -81,6 +98,7 @@ const sortCreation = (metaType, toggleAscOrder) => {
   return newData.slice(0, RECORDSPERPAGE);
 };
 
+// initial get request when the client's page loads
 app.get('/', (req, res, next) => {
   const averageSum = sumOfTransactionsAndAverage();
   const { finalSum, average } = averageSum;
@@ -94,6 +112,7 @@ app.get('/', (req, res, next) => {
   next();
 });
 
+// triggered when the client requested the next chunk of transactions
 app.post('/getPageIndex', (req, res, next) => {
   const { pageIndex } = req.body;
   const newChunck = getChunk(pageIndex);
@@ -101,6 +120,7 @@ app.post('/getPageIndex', (req, res, next) => {
   next();
 });
 
+// triggered when the client requested to view all the data by the metadata chosen.
 app.post('/sort', (req, res, next) => {
   const { metaType, toggleAscOrder } = req.body;
 
