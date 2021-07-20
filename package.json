@@ -6,9 +6,9 @@
     "lint": "eslint .",
     "prettier": "npx prettier --write .",
     "uAll": " npm uninstall @babel/core @babel/preset-env @babel/preset-react @pmmmwh/react-refresh-webpack-plugin babel-loader chokidar clean-webpack-plugin cross-env css-loader html-webpack-plugin mini-css-extract-plugin postcss postcss-loader postcss-preset-env react-refresh resolve-url sass sass-loader urix webpack webpack-merge webpack-cli webpack-dev-server",
-    "iAll": "npm i -D cross-env webpack webpack-merge webpack-cli webpack-dev-server @babel/core @babel/preset-env babel-loader html-webpack-plugin css-loader mini-css-extract-plugin sass sass-loader postcss postcss-loader postcss-preset-env",
+    "iAll": "npm i -D cross-env webpack webpack-merge webpack-cli webpack-dev-server babel-loader @babel/core @babel/preset-env css-loader mini-css-extract-plugin sass sass-loader postcss postcss-preset-env postcss-loader ",
     "iR": "npm i -S react react-dom",
-    "iRef": "npm i -D @babel/preset-env @babel/preset-react react-refresh @pmmmwh/react-refresh-webpack-plugin clean-webpack-plugin",
+    "iRef": "npm i -D @babel/preset-react html-webpack-plugin clean-webpack-plugin @pmmmwh/react-refresh-webpack-plugin react-refresh ",
     "iAdd": "npm i -D chokidar source-map-resolve",
     "iCoreGen": "npm i -S core-js regenerator-runtime immer",
     "iLintPret": "npm i -D @babel/eslint-parser @babel/preset-env  eslint eslint-config-airbnb eslint-config-prettier eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-prettier eslint-plugin-react eslint-plugin-react-hooks "

@@ -19,11 +19,11 @@ module.exports = {
   },
   devtool: 'source-map',
   plugins: [
+    new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
       template: './frontend/src/index.html',
       favicon: './frontend/images/jLogo.ico'
     }),
-    new MiniCssExtractPlugin()
   ],
 
   module: {
